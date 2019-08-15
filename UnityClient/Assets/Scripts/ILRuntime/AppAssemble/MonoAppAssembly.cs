@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -21,5 +21,6 @@ public class MonoAppAssembly : IAppAssembly
     public void Load(byte[] assBytes, byte[] pdbBytes)
     {
         assembly = Assembly.Load(assBytes, pdbBytes);
+        UnityEngine.Debug.Log($"当前使用的是Mono模式");
     }
 }
