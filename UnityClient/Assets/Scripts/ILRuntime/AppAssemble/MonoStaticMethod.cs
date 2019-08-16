@@ -6,9 +6,9 @@ public class MonoStaticMethod : IStaticMethod
 
     private readonly object[] param;
 
-    public MonoStaticMethod(System.Type type, string methodName)
+    public MonoStaticMethod(MethodInfo methon)
     {
-        methodInfo = type.GetMethod(methodName);
+        methodInfo = methon;
         param = new object[methodInfo.GetParameters().Length];
     }
 

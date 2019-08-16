@@ -6,10 +6,10 @@ public class ILStaticMethod : IStaticMethod
     private readonly IMethod method;
     private readonly object[] param;
 
-    public ILStaticMethod(ILRuntime.Runtime.Enviorment.AppDomain appDomain, string typeName, string methodName, int paramsCount)
+    public ILStaticMethod(ILRuntime.Runtime.Enviorment.AppDomain appDomain, IMethod method, int paramsCount)
     {
         this.appDomain = appDomain;
-        method = appDomain.GetType(typeName).GetMethod(methodName, paramsCount);
+        this.method = method;
         param = new object[paramsCount];
     }
 
@@ -38,4 +38,5 @@ public class ILStaticMethod : IStaticMethod
         param[2] = c;
         appDomain.Invoke(this.method, null, param);
     }
+    
 }

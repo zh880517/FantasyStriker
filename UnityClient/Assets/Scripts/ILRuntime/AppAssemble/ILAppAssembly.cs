@@ -9,10 +9,16 @@ public class ILAppAssembly : IAppAssembly
     private ILRuntime.Runtime.Enviorment.AppDomain appDomain;
     private MemoryStream dllStream;
     private MemoryStream pdbStream;
-
+    
     public IStaticMethod GetStaticMethod(string typeName, string methodName, int paramCount)
     {
-        return new ILStaticMethod(this.appDomain, typeName, methodName, paramCount);
+        var type = appDomain.GetType(typeName);
+        if (type != null)
+        {
+            var method = type.GetMethod(methodName, paramCount);
+            return new ILStaticMethod(appDomain, method, paramCount);
+        }
+        return null;
     }
 
     public List<Type> GetTypes()
