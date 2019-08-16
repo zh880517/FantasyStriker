@@ -5,12 +5,19 @@ using System.Reflection;
 
 public class MonoAppAssembly : IAppAssembly
 {
+
     private Assembly assembly;
 
     public IStaticMethod GetStaticMethod(string typeName, string methodName, int paramCount)
     {
         Type type = assembly.GetType(typeName);
-        return new MonoStaticMethod(type, methodName);
+        if (type != null)
+        {
+            var method = type.GetMethod(methodName);
+            if (method != null)
+                return new MonoStaticMethod(method);
+        }
+        return null;
     }
 
     public List<Type> GetTypes()
