@@ -16,7 +16,7 @@ public class HotfixCopy
         {
             File.Copy(dllPath, Path.Combine(CodeDir, "Hotfix.dll.bytes"), true);
             File.Copy(Path.Combine(ScriptAssembliesDir, HotfixPdb), Path.Combine(CodeDir, "Hotfix.pdb.bytes"), true);
-            Debug.Log($"复制Hotfix.dll, Hotfix.pdb到Assets/Resources完成");
+            //Debug.Log($"复制Hotfix.dll, Hotfix.pdb到Assets/Resources完成");
             AssetDatabase.Refresh();
         }
     }

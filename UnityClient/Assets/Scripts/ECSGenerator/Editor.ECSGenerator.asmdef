@@ -1,0 +1,17 @@
+{
+    "name": "Editor.ECSGenerator",
+    "references": [
+        "GUID:cc47be11ec6aa90479c1e2e41ad3092a"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
